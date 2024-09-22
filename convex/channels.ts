@@ -8,7 +8,7 @@ export const create = mutation({
     name: v.string(),
   },
   handler: async (ctx, args) => {
-    const userId = getAuthUserId(ctx);
+    const userId = await getAuthUserId(ctx);
 
     if (!userId) {
       throw new Error('Unauthorized');
@@ -17,7 +17,7 @@ export const create = mutation({
     const member = await ctx.db
       .query('members')
       .withIndex('by_workspace_id_user_id', (q) =>
-        q.eq('workspaceId', args.workspaceId),
+        q.eq('workspaceId', args.workspaceId).eq('userId', userId),
       )
       .unique();
 
@@ -28,7 +28,7 @@ export const create = mutation({
     const parsedName = args.name.replace(/\s+/g, '-').toLowerCase();
 
     const channelId = ctx.db.insert('channels', {
-      name: args.name,
+      name: parsedName,
       workspaceId: args.workspaceId,
     });
 
