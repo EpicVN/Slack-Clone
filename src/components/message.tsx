@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import { Hint } from './hint';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import { Thumbnail } from './thumbnail';
+import { Toolbar } from './toolbar';
 
 const Renderer = dynamic(() => import('@/components/renderer'), { ssr: false });
 
@@ -24,7 +25,7 @@ interface MessageProps {
   updatedAt: Doc<'messages'>['updateAt'];
   createdAt: Doc<'messages'>['_creationTime'];
   isEditing: boolean;
-  setEditing: (id: Id<'messages'> | null) => void;
+  setEditingId: (id: Id<'messages'> | null) => void;
   isCompact: boolean;
   hideThreadButton?: boolean;
   threadCount?: number;
@@ -47,7 +48,7 @@ export const Message = ({
   updatedAt,
   createdAt,
   isEditing,
-  setEditing,
+  setEditingId,
   isCompact,
   hideThreadButton,
   threadCount,
@@ -107,6 +108,17 @@ export const Message = ({
           ) : null}
         </div>
       </div>
+      {!isEditing && (
+        <Toolbar
+          isAuthor={isAuthor}
+          isPending={false}
+          handleEdit={() => setEditingId(id)}
+          handleThread={() => {}}
+          handleDelete={() => {}}
+          handleReaction={() => {}}
+          hideThreadButton={hideThreadButton}
+        />
+      )}
     </div>
   );
 };
