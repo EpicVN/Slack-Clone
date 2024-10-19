@@ -1,4 +1,4 @@
-import { GetMessageReturnType } from '@/features/messages/api/use-get-message';
+import { GetMessageReturnType } from '@/features/messages/api/use-get-messages';
 import { differenceInMinutes, format, isToday, isYesterday } from 'date-fns';
 import { Message } from './message';
 import { ChannelHero } from './channel-hero';
