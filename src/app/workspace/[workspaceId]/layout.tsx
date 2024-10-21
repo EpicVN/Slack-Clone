@@ -12,7 +12,7 @@ import { WorkspaceSidebar } from './workspace-sidebar';
 import { usePanel } from '@/hooks/use-panel';
 import { Loader } from 'lucide-react';
 import { Id } from '../../../../convex/_generated/dataModel';
-import { Thread } from '@/features/messages/api/components/thread';
+import { Thread } from '@/features/messages/components/thread';
 
 interface WorkspaceIdLayoutProps {
   children: React.ReactNode;

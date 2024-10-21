@@ -1,4 +1,4 @@
-import { useParentMessageId } from '@/features/messages/api/store/use-parent-message-id';
+import { useParentMessageId } from '@/features/messages/store/use-parent-message-id';
 
 export const usePanel = () => {
   const [parentMessageId, setParentMessageId] = useParentMessageId();

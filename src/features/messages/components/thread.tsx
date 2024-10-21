@@ -9,15 +9,15 @@ import { useCurrentMember } from '@/features/members/api/use-current-member';
 import { useGenerateUploadUrl } from '@/features/upload/api/use-generate-upload-url';
 import { useWorkspaceId } from '@/hooks/use-workspace-id';
 import { useChannelId } from '@/hooks/use-channel-id';
-import { useCreateMessage } from '../use-create-message';
-import { useGetMessage } from '../use-get-message';
-import { useGetMessages } from '../use-get-messages';
+import { useCreateMessage } from '../api/use-create-message';
+import { useGetMessage } from '../api/use-get-message';
+import { useGetMessages } from '../api/use-get-messages';
 
 import { Button } from '@/components/ui/button';
 import { Message } from '@/components/message';
 import { AlertTriangle, Loader, XIcon } from 'lucide-react';
 
-import { Id } from '../../../../../convex/_generated/dataModel';
+import { Id } from '../../../../convex/_generated/dataModel';
 
 const Editor = dynamic(() => import('@/components/editor'), { ssr: false });
 
@@ -224,6 +224,8 @@ export const Thread = ({ messageId, onClose }: ThreadProps) => {
                   isCompact={isCompact}
                   hideThreadButton
                   threadCount={message.threadCount}
+                  threadImage={message.threadImage}
+                  threadName={message.threadName}
                   threadTimestamp={message.threadTimestamp}
                 />
               );
