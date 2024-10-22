@@ -51,6 +51,8 @@ const WorkspaceIdPage = () => {
     memberLoading,
     member,
     workspace,
+    channelId,
+    isAdmin,
     open,
     setOpen,
     router,
