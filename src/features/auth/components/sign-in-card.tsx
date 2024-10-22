@@ -114,7 +114,7 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
         </div>
 
         <p className="flex flex-row text-xs text-muted-foreground">
-          <p className="mr-1">Don't have an account ?</p>
+          <p className="mr-1">Don&apos;t have an account ?</p>
           <span
             onClick={() => setState('signUp')}
             className="text-sky-700 hover:underline cursor-pointer"
