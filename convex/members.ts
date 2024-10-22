@@ -186,8 +186,6 @@ export const remove = mutation({
       throw new Error('Cannot remove self is self is an admin');
     }
 
-    //TODO: Remove member
-
     const [messages, reactions, conversations] = await Promise.all([
       ctx.db
         .query('messages')
